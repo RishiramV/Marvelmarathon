@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f2df">
+  <title>Connection lost · Marvel Marathon</title>
+  <style>
+    @font-face{font-family:MarvelDisplay;src:url('/fonts/Anton-Regular.woff') format('woff');font-display:swap}
+    @font-face{font-family:MarvelSans;src:url('/fonts/Arimo-Regular.woff') format('woff');font-display:swap}
+    *{box-sizing:border-box}html{background:#f8f2df;color:#151515}body{margin:0;font-family:MarvelSans,Arial,sans-serif;min-height:100dvh;display:grid;place-items:center;padding:20px 20px max(20px,env(safe-area-inset-bottom))}
+    main{width:min(100%,420px);border:3px solid #151515;background:#f8f2df;box-shadow:7px 7px 0 #151515;overflow:hidden}
+    .masthead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 15px;background:#151515;color:#fff8e8;font-size:10px;font-weight:bold;letter-spacing:.12em}.masthead strong{color:#ffe13b}.masthead span:last-child{text-align:right}
+    .art{position:relative;min-height:270px;height:min(40vh,330px);display:flex;align-items:center;justify-content:center;overflow:hidden;background-color:#ffe13b;background-image:radial-gradient(#151515 1.1px,transparent 1.3px);background-size:10px 10px;border-bottom:3px solid #151515}
+    .burst{position:absolute;width:300px;height:300px;background:#f13a31;clip-path:polygon(50% 0,58% 20%,75% 5%,75% 26%,97% 19%,86% 39%,100% 50%,82% 57%,94% 77%,72% 73%,67% 98%,52% 80%,37% 100%,33% 76%,10% 83%,19% 62%,0 50%,18% 41%,6% 18%,29% 25%,30% 4%,43% 21%)}
+    .art img{position:relative;width:min(95%,310px);height:100%;object-fit:contain;filter:drop-shadow(7px 8px 0 #151515)}.badge{position:absolute;z-index:1;top:10px;left:9px;background:#fff8e8;border:2px solid #151515;box-shadow:3px 3px #151515;padding:6px;font-size:8px;font-weight:bold;letter-spacing:.06em}.issue{position:absolute;bottom:13px;right:14px;z-index:1;background:#151515;color:#fff8e8;padding:6px 8px;font-size:10px;font-weight:bold;transform:rotate(-3deg)}
+    .copy{padding:20px 19px 22px}.eyebrow{margin:0 0 6px;color:#d62823;font-size:10px;font-weight:bold;letter-spacing:.16em}.copy h1{font-family:MarvelDisplay,Impact,sans-serif;font-weight:normal;font-size:clamp(39px,12vw,57px);line-height:.98;letter-spacing:.01em;margin:0 0 12px;text-transform:uppercase}.copy p:not(.eyebrow){font-size:14px;line-height:1.5;margin:0 0 18px;max-width:33ch}.retry{width:100%;border:2px solid #151515;background:#ed342c;color:white;box-shadow:4px 4px 0 #151515;font:normal 19px MarvelDisplay,Impact,sans-serif;letter-spacing:.05em;padding:14px 16px;cursor:pointer}.retry:focus-visible{outline:3px solid #2c62d7;outline-offset:4px}.retry:active{transform:translate(3px,3px);box-shadow:1px 1px #151515}.footer{padding:0 19px 17px;font-size:10px;font-weight:bold;letter-spacing:.1em}.footer span{color:#d62823}
+    @media(max-height:650px){body{padding:10px}.art{min-height:160px;height:28vh}.copy{padding:12px 16px}.copy h1{font-size:38px}.copy p:not(.eyebrow){margin-bottom:10px}.footer{padding-bottom:10px}}
+  </style>
+</head>
+<body>
+  <main aria-labelledby="offline-title">
+    <header class="masthead"><span><strong>MARVEL</strong> / MARATHON ARCHIVE</span><span>OFFLINE EDITION</span></header>
+    <div class="art"><span class="badge">CONNECTION LOST</span><span class="burst" aria-hidden="true"></span><img src="/offline-gauntlet.png" alt="An empty golden Infinity Gauntlet"><span class="issue">NO SIGNAL / ISSUE 01</span></div>
+    <div class="copy"><p class="eyebrow">THE STONES ARE MISSING.</p><h1 id="offline-title">NO INTERNET.<br>NO SNAP.</h1><p>Looks like your connection vanished. Connect to the internet to get back to your Marvel universe.</p><button class="retry" id="retry" type="button">TRY AGAIN ↗</button></div>
+    <div class="footer"><span>✳</span> YOUR SAGA WILL BE WAITING.</div>
+  </main>
+  <script>document.getElementById('retry').addEventListener('click',function(){if(window.parent!==window){window.parent.postMessage('marvel-offline-retry',location.origin)}else{location.reload()}});</script>
+</body>
+</html>
